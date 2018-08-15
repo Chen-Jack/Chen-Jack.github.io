@@ -6,7 +6,7 @@
 }
 a{
     text-decoration: none;
-    color: #436473;
+    color: #bdd5e0;
 }
 nav{
     position: fixed;
@@ -58,6 +58,7 @@ nav a:hover{
     justify-content: center;
     align-items: center;
 }
+
 
 
 main{
@@ -112,10 +113,48 @@ main img{
 }
 
 
+#education{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(190, 190, 190);
+
+}
+
+.inner-content{
+    background-color: rgba(34,34,34,0.9);
+    color: white;
+    width: 70%;
+    max-height: 100%;
+    padding: 76px;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.inner-content p{
+    font-size: 1.25em;
+    font-family: 'Neuton', serif;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
+
 
 #contact{
     width: 100vw;
     max-width: 100%;
-    height: 75px;
     background-color: #222;
+    color: rgba(255,255,255,0.7);
+}
+
+footer{
+    display: flex;
+    justify-content: flex-start;
+}
+
+footer ul{
+    box-sizing: border-box;
+    padding: 20px;
+    color: rgba(255,255,255,0.7)
 }
