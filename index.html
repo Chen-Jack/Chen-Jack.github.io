@@ -12,20 +12,28 @@
 <body>
 
     <nav id="nav-bar">
-        <a href="#landing"> About </a>
-        <a href="#portfolio"> Portfolio & Works</a> 
-        <a href="#education"> Education & Experience </a>
+        <a onClick="updateSelection('about')" id ="about-link" href="#landing"> About </a>
+        <a onClick="updateSelection('portfolio')" id="portfolio-link" href="#portfolio"> Portfolio & Works</a> 
+        <a onClick="updateSelection('education')" id="education-link" href="#education"> Education & Experience </a>
     </nav>
 
     <div id="landing">
         <main style="box-sizing:border-box; padding: 40px;"id="main" >
-            <img src="self.png" />
+            <div style="flex: 1">       
+                <img src="self.png" />
+                <h2 style="color: white"> Contact </h2>
+                <ul style="list-style-type: none; color: rgba(255,255,255,0.7)">
+                    <li> 1-917-776-8090 </li>
+                    <li> Chen.Jack.CS@gmail.com </li>
+                    <li> <a href="https://linkedin.com/in/passbyvalue">https://linkedin.com/in/passbyvalue </a> </li>
+                    <li> <a href="https://github.com/chen-jack"> https://github.com/chen-jack </a> </li>
+                </ul>
+            </div>
             <div id="bio">
-                <h1> <span style="color: #bdd5e0; font-family: 'Press Start 2P', cursive;"> World's Best Front-End Developer. </span> (Jack Chen) </h1>
+                <h1> <span style="color: #bdd5e0; font-family: 'Kaushan Script', cursive;"> World's Best </br> Front-End Developer! </span> </br>Jack Chen </h1>
                 
             </br><hr/>
-
-                <h2> Basically everything about me  </h2>
+            
                 <p style="color: rgba(255,255,255,0.75); padding: 10px; font-size: 1.25em">
                 This guy here is a recent college graduate from Hunter College. 
                 After receiving his bachelors degree in Computer Science, he is now aiming to go out and become a <strong> JUNIOR FRONT-END DEVELOPER.</strong>
@@ -35,13 +43,7 @@
                     He's got a long way to go, but it's a start. Check out <a href="#portfolio"> his recent projects </a> if you want to know what he's been up to!
                 </p>
 
-                <h2> Contact </h2>
-                <ul style="color: rgba(255,255,255,0.7)">
-                    <li> 1-917-776-8090 </li>
-                    <li> Chen.Jack.Cs@gmail.com </li>
-                    <li> <a href="https://linkedin.com/in/passbyvalue">https://linkedin.com/in/passbyvalue </a> </li>
-                    <li> <a href="https://github.com/chen-jack"> https://github.com/chen-jack </a> </li>
-                </ul>
+               
             </div>
         </main> 
     </div>
@@ -55,19 +57,23 @@
         <div class ="inner-content">
             <h1 style="font-size: 3em; color: #bdd5e0"> Education </h1>
             <hr style="margin:10px"/>
-            <h2 style="margin: 10px; color: #bdd5e0"> Hunter College of New York </h2>
+
+            <div class="education-entry">
+                <h2 style="color: #bdd5e0"> Hunter College of New York </h2>
                 <p>
                     Computer Science (3.63 GPA) </br>
                     Served over a year in Hunter College's Associate of Computing Machinery. </br>
-                    Bachelor's of Arts Degree Awarded in 2016 </br>
+                    Bachelor's of Arts Degree Awarded in 2018 </br>
                 </p>
+            </div>
 
-            
-            <h2 style="margin: 10px; color: #bdd5e0"> City College of New York</h2>
+            <div class="education-entry">
+                <h2 style="color: #bdd5e0"> City College of New York</h2>
                 <p>
                     Chemistry (Secret GPA) </br>
                     Bachelor's of Science Degree Awarded in 2016.
                 </p>
+            </div>
         </div>
     </div>
 
