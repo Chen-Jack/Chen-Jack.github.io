@@ -1,4 +1,6 @@
 window.onload = ()=>{
+    console.log("Shout out to my love, SHelLY HuANG <3");
+
     // The following two class adds are for animation purposes
     const element = document.getElementById("nav-bar");
     element.classList.add("nav-expanded");

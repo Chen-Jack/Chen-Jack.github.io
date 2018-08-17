@@ -193,6 +193,8 @@ main *{
 
 .portfolio-item{
     width: 90%;
+    
+
     margin: 15px;
     box-sizing: border-box;
     background-color:  hsl(203, 23%, 86%);
@@ -207,6 +209,8 @@ main *{
 }
 
 .portfolio-item .portfolio-item-text{
+    
+    max-height: 33%;
     width: 50%;
     height: 100%;
     padding: 10px;
@@ -232,10 +236,11 @@ main *{
 /* EDUCATION PAGE */
 
 #education{
+
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(210, 210, 210);
+    background-color: hsl(203, 23%, 86%);
 
 }
 
@@ -249,9 +254,9 @@ main *{
 }
 
 .inner-content{
-    background-color: rgba(34,34,34,0.9);
+    background-color: #222;
     color: white;
-    width: 70%;
+    width: 90%;
     padding: 76px;
     box-sizing: border-box;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
