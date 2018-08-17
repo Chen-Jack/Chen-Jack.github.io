@@ -8,57 +8,70 @@ window.onload = ()=>{
 
 
     window.addEventListener('wheel', changeSectionOnWheel);
+    window.addEventListener('keydown', changeSectionOnKey)
 }
-
 
 const nav_links = document.getElementById('nav-bar').children
+const scroll_indicator = document.getElementById('scroll-indicator').children;
+
 for(let i = 0; i<nav_links.length; i++){
     nav_links[i].onclick = jumpToSection.bind(this, i)
+    scroll_indicator[i].onclick = jumpToSection.bind(this,i)
 }
 
-//Initalize which nav link is highlighted be default
+
 let current_selection = 0; //Default selection is the first link
 updateSideIndicator(current_selection);
-nav_links[current_selection].classList.add('selected-link')
+updateCurrentSelection(current_selection);
 
 
 // SCREEN CHANGE FUNCTIONS
-
 function jumpToSection(current_selection){
     nav_links[current_selection].click();
     updateCurrentSelection(current_selection);
     updateSideIndicator(current_selection);
 }
 
-function changeSectionOnWheel(wheelEvent){
-    let dy = wheelEvent.deltaY;
-    
-    if(dy > 0 && current_selection != nav_links.length-1){ //Prevent wrap
+function changeSectionOnKey(keyEvent){
+    if(keyEvent.key === "ArrowRight" || keyEvent.key === "ArrowDown"){
         cycleForward()
     }
-    
-    else if(dy < 0 && current_selection != 0){  //Prevent wrap
+    else if(keyEvent.key === "ArrowLeft" || keyEvent.key === "ArrowUp"){
         cycleBack()
     }
+        //To prevent constant calling of this function
+    window.removeEventListener('keydown', changeSectionOnKey);
+    setTimeout(()=>window.addEventListener('keydown', changeSectionOnKey) , 300);
+}
+
+function changeSectionOnWheel(wheelEvent){
+    let dy = wheelEvent.deltaY;
+    if(dy > 0) 
+        cycleForward()
+    else if(dy < 0) 
+        cycleBack()
 
     //To prevent constant calling of this function
     window.removeEventListener('wheel', changeSectionOnWheel);
-    setTimeout(()=>window.addEventListener('wheel', changeSectionOnWheel) , 200);
+    setTimeout(()=>window.addEventListener('wheel', changeSectionOnWheel) , 300);
 }
 
 function cycleForward(){
-    current_selection +=1;
-    nav_links[current_selection].click();
-    updateCurrentSelection(current_selection);
-    updateSideIndicator(current_selection)
+    if(current_selection != nav_links.length-1){
+        current_selection +=1;
+        nav_links[current_selection].click();
+        updateCurrentSelection(current_selection);
+        updateSideIndicator(current_selection)
+    }
 }
 
-
 function cycleBack(){
-    current_selection -=1;
-    nav_links[current_selection].click();
-    updateCurrentSelection(current_selection);
-    updateSideIndicator(current_selection)
+    if(current_selection != 0){
+        current_selection -=1;
+        nav_links[current_selection].click();
+        updateCurrentSelection(current_selection);
+        updateSideIndicator(current_selection)
+    }
 }
 
 // UI UPDATE FUNCTIONS
@@ -72,7 +85,6 @@ function updateCurrentSelection(selection){
 }
 
 function updateSideIndicator(selection){
-    const scroll_indicator = document.getElementById('scroll-indicator').children;
     for(let i=0; i<scroll_indicator.length; i++){
         scroll_indicator[i].classList.remove('current-indicator-item');
     }

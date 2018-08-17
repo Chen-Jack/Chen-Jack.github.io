@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Neuton|Press+Start+2P" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Neuton" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <nav id="nav-bar">
         <a id ="about-link" href="#landing"> About </a>
         <a id="portfolio-link" href="#portfolio"> Portfolio & Works</a> 
-        <a id="education-link" href="#education"> Education & Experience </a>
+        <a id="education-link" href="#education"> Education </a>
     </nav>
 
     <div id="scroll-indicator">
@@ -23,7 +23,7 @@
         <div class="indicator-item"></div>
     </div>
 
-
+<!-- ABOUT -->
     <div id="landing">
         <main id="main" >
             
@@ -31,20 +31,24 @@
             <div id="pic-contact-space">       
                 <img src="self.png" />
                 <div>
+                    <h1 style="color: white"> Jack Chen </h1>
                     <h2 style="color: white"> Contact </h2>
                     <ul style="list-style-type: none; color: rgba(255,255,255,0.7)">
                         <li> Chen.Jack.CS@gmail.com </li>
-                        <li> <a href="https://linkedin.com/in/passbyvalue">https://linkedin.com/in/passbyvalue </a> </li>
-                        <li> <a href="https://github.com/chen-jack"> https://github.com/chen-jack </a> </li>
                     </ul>
+                    <div class="social-media-links"> 
+                        <a href="https://github.com/chen-jack"> <img src="github.png"> </a> 
+                        <a href="https://www.facebook.com/passbyreference"> <img src="facebook.png">  </a>
+                        <a href="https://linkedin.com/in/passbyvalue"> <img src="linkedin.png"> </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Bio Section for the About Page -->
             <div id="bio">
-                <h1> <span style="font-size: 3rem; color: #bdd5e0; font-family: 'Kaushan Script', cursive;"> World's Best Front-End Developer! </span> </br>Jack Chen </h1>
+                <h1 style="font-size: 3rem; color: #bdd5e0;"> World's Best Front-End Developer! </h1>
                 
-                </br><hr/>
+                <hr style="margin-top: 30px;margin-bottom: 30px"/>
             
                 <p style="color: rgba(255,255,255,0.75); font-size: 1.25em">
                 This guy here is a recent college graduate from Hunter College. 
@@ -62,39 +66,61 @@
         </main> 
     </div>
 
-
+<!-- PORTFOLIO -->
     <div id="portfolio" class="content">
         <div class="portfolio-item">
-            <div>
-                <h1> Lorem, ipsum dolor. </h1>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi a perspiciatis adipisci. Eos quibusdam velit modi reiciendis, eum repellendus nemo!</p>
+            <div class="portfolio-item-text">
+                <h1> <a href="http://slackpage-clone.herokuapp.com/"> Slack Home Page Clone </a> </h1>
+                <p> 
+                    A front-end clone of Slack's home page using React.js and styled using Sass/CSS Modules. 
+                <p>
+                    Particular attention was also made to implement responsive design and has been testing on multiple devices of various dimensions.
+                </p>
+                </p>
+                <p> Deployed on Heroku @ <a style="color:rgb(41, 54, 128)"href="http://slackpage-clone.herokuapp.com/">http://slackpage-clone.herokuapp.com/</a></p>
             </div>
-            
-            <img src="mountain_bg.jpeg"> 
+            <div class="portfolio-item-img">
+                <img width="50px" height="50px" src="slack.PNG"> 
+            </div>
+            <div style="clear: both"></div>
         </div>
         <div class="portfolio-item">
-            <div>
-                <h1> Lorem ipsum dolor sit amet. </h1>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi a perspiciatis adipisci. Eos quibusdam velit modi reiciendis, eum repellendus nemo!</p>
+            <div class="portfolio-item-text">
+                <h1> <a href="https://github.com/shellyhuang18/Otokakure"> Otokakure </a></h1>
+                <p> 
+                    An iOS and Android app that utilizes the phone’s microphone to teach users how to sing.
+                </p>
+                <p>
+                    Collaboratively developed amongst a team of 4 other students  using C# on the Unity platform, and Firebase
+                </p>
             </div>
-            
-            <img src="self.png"> 
+            <div class="portfolio-item-img">
+                <img src="otokakure.PNG"> 
+            </div>
+            <div style="clear: both"></div>
         </div>
         <div class="portfolio-item">
-            <div>
-                <h1> Lorem ipsum dolor sit. </h1>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi a perspiciatis adipisci. Eos quibusdam velit modi reiciendis, eum repellendus nemo!</p>
+            <div class="portfolio-item-text">
+                <h1> <a href="https://github.com/Chen-Jack/Omok" >Omok </a></h1>
+                <p>
+                    Based off the board game, Omok is an android application that allows two users to play a match using Android's WiFi-P2P technology.  
+                </p>
+
             </div>
 
-            <img src="tree.jpg"> 
+            <div class="portfolio-item-img">
+                <img src="omok.PNG"> 
+            </div>
+            <div style="clear: both"></div>
         </div>
         <h4> <a href="github.com/chen-jack" >See More @ github.com/chen-jack </a> </h4>
     </div>
 
+    <!-- EDUCATION -->
     <div id="education" class="content">
         <div class ="inner-content">
             <h1 style="font-size: 3em; color: #bdd5e0"> Education </h1>
-            <hr style="margin:10px"/>
+            <hr style="margin-bottom: 30px;margin-top: 30px"/>
 
             <div class="education-entry">
                 <h2 style="color: #bdd5e0"> Hunter College</h2>
