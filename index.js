@@ -1,4 +1,4 @@
-window.onload = ()=>{
+document.onload = ()=>{
     console.log("Shout out to my love, SHelLY HuANG <3");
 
     // The following two class adds are for animation purposes
@@ -36,11 +36,9 @@ function jumpToSection(current_selection){
 
 function changeSectionOnKey(keyEvent){
     if(keyEvent.key === "ArrowRight" || keyEvent.key === "ArrowDown"){
-        console.log("Forward");
         cycleForward()
     }
     else if(keyEvent.key === "ArrowLeft" || keyEvent.key === "ArrowUp"){
-        console.log("Backward");
         cycleBack()
     }
         //To prevent constant calling of this function
@@ -66,6 +64,9 @@ function cycleForward(){
         nav_links[current_selection].click();
         updateCurrentSelection(current_selection);
         updateSideIndicator(current_selection)
+        console.log("FORWARD");
+        
+    
     }
 }
 
@@ -75,6 +76,7 @@ function cycleBack(){
         nav_links[current_selection].click();
         updateCurrentSelection(current_selection);
         updateSideIndicator(current_selection)
+        console.log("Backward");
     }
 }
 
