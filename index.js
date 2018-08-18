@@ -11,7 +11,7 @@ window.onload = ()=>{
 
     window.addEventListener('wheel', changeSectionOnWheel);
     window.addEventListener('keydown', changeSectionOnKey);
-    window.addEventListener('wheel', function(){console.log("e")});
+    window.addEventListener('wheel', ()=>{console.log("e")});
 }
 
 const nav_links = document.getElementById('nav-bar').children
