@@ -36,9 +36,11 @@ function jumpToSection(current_selection){
 
 function changeSectionOnKey(keyEvent){
     if(keyEvent.key === "ArrowRight" || keyEvent.key === "ArrowDown"){
+        console.log("Forward");
         cycleForward()
     }
     else if(keyEvent.key === "ArrowLeft" || keyEvent.key === "ArrowUp"){
+        console.log("Backward");
         cycleBack()
     }
         //To prevent constant calling of this function
