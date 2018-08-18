@@ -9,8 +9,8 @@ window.onload = ()=>{
     landing.classList.add("show-main");
 
 
-    document.addEventListener('wheel', changeSectionOnWheel);
-    document.addEventListener('keydown', changeSectionOnKey)
+    window.addEventListener('wheel', changeSectionOnWheel);
+    window.addEventListener('keydown', changeSectionOnKey)
 }
 
 const nav_links = document.getElementById('nav-bar').children
