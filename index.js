@@ -1,3 +1,14 @@
+function throttle(fn, wait) {
+    var time = Date.now();
+    return function(e) {
+        
+      if ((time + wait - Date.now()) < 0) {
+        fn(e);
+        time = Date.now();
+      }
+    }
+  }
+
 window.onload = ()=>{
     console.log("Shout out to my love, SHelLY HuANG <3");
 
@@ -9,9 +20,11 @@ window.onload = ()=>{
     landing.classList.add("show-main");
 
 
-    window.addEventListener('wheel', changeSectionOnWheel);
-    window.addEventListener('keydown', changeSectionOnKey)
+    document.addEventListener('wheel', throttle(changeSectionOnWheel, 1250));
+    document.addEventListener('keydown', changeSectionOnKey);
 }
+
+
 
 const nav_links = document.getElementById('nav-bar').children
 const scroll_indicator = document.getElementById('scroll-indicator').children;
@@ -35,27 +48,33 @@ function jumpToSection(current_selection){
 }
 
 function changeSectionOnKey(keyEvent){
+    //To prevent constant calling of this function
+    // document.removeEventListener('keydown', changeSectionOnKey);
+    if(isMouseMoving){
     if(keyEvent.key === "ArrowRight" || keyEvent.key === "ArrowDown"){
         cycleForward()
     }
     else if(keyEvent.key === "ArrowLeft" || keyEvent.key === "ArrowUp"){
         cycleBack()
     }
-        //To prevent constant calling of this function
-    window.removeEventListener('keydown', changeSectionOnKey);
-    setTimeout(()=>window.addEventListener('keydown', changeSectionOnKey) , 300);
+    }
+    // setTimeout(()=>document.addEventListener('keydown', changeSectionOnKey) , 1000);
 }
 
+
+
 function changeSectionOnWheel(wheelEvent){
+   //To prevent constant calling of this function
+//    document.removeEventListener('wheel', changeSectionOnWheel);
+    console.log("change section")
     let dy = wheelEvent.deltaY;
     if(dy > 0) 
         cycleForward()
     else if(dy < 0) 
         cycleBack()
 
-    //To prevent constant calling of this function
-    window.removeEventListener('wheel', changeSectionOnWheel);
-    setTimeout(()=>window.addEventListener('wheel', changeSectionOnWheel) , 300);
+ 
+    // setTimeout(()=>document.addEventListener('wheel', changeSectionOnWheel) , 1000);
 }
 
 function cycleForward(){
@@ -64,7 +83,6 @@ function cycleForward(){
         nav_links[current_selection].click();
         updateCurrentSelection(current_selection);
         updateSideIndicator(current_selection)
-        console.log("FORWARD");
         
     
     }
@@ -76,7 +94,6 @@ function cycleBack(){
         nav_links[current_selection].click();
         updateCurrentSelection(current_selection);
         updateSideIndicator(current_selection)
-        console.log("Backward");
     }
 }
 
