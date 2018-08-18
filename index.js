@@ -19,10 +19,9 @@ window.onload = ()=>{
     const landing = document.getElementById("main");
     landing.classList.add("show-main");
 
-
     document.addEventListener('wheel', throttle(changeSectionOnWheel, 1250));
     document.addEventListener('keydown', changeSectionOnKey);
-}
+
 
 
 
