@@ -19,11 +19,9 @@ window.onload = ()=>{
     const landing = document.getElementById("main");
     landing.classList.add("show-main");
 
-    document.addEventListener('wheel', throttle(changeSectionOnWheel, 1250));
+    document.addEventListener('wheel', lethargicWheelchange);
     document.addEventListener('keydown', changeSectionOnKey);
-
-
-
+}
 
 const nav_links = document.getElementById('nav-bar').children
 const scroll_indicator = document.getElementById('scroll-indicator').children;
@@ -48,33 +46,35 @@ function jumpToSection(current_selection){
 
 function changeSectionOnKey(keyEvent){
     //To prevent constant calling of this function
-    // document.removeEventListener('keydown', changeSectionOnKey);
-    if(isMouseMoving){
+    document.removeEventListener('keydown', changeSectionOnKey);
     if(keyEvent.key === "ArrowRight" || keyEvent.key === "ArrowDown"){
         cycleForward()
     }
     else if(keyEvent.key === "ArrowLeft" || keyEvent.key === "ArrowUp"){
         cycleBack()
     }
-    }
-    // setTimeout(()=>document.addEventListener('keydown', changeSectionOnKey) , 1000);
+    setTimeout(()=>document.addEventListener('keydown', changeSectionOnKey) , 300);
 }
 
 
-
-function changeSectionOnWheel(wheelEvent){
-   //To prevent constant calling of this function
-//    document.removeEventListener('wheel', changeSectionOnWheel);
-    console.log("change section")
-    let dy = wheelEvent.deltaY;
+//==========    These functions are important for one another =======
+const lethargy = new Lethargy();
+const throttledEvent = throttle(changeSectionOnWheel,300)//Lethargic only determines if something is inertia scrolling, you still need to throttle it
+function lethargicWheelchange(e){   //A lethargic wrapper on my changeSectionOnWheel function to detect inertia scrolling
+    e.preventDefault()
+    e.stopPropagation();
+    if(lethargy.check(e) !== false) {
+        throttledEvent(e);      
+    }
+}
+function changeSectionOnWheel(e){
+    let dy = e.deltaY;
     if(dy > 0) 
         cycleForward()
     else if(dy < 0) 
         cycleBack()
-
- 
-    // setTimeout(()=>document.addEventListener('wheel', changeSectionOnWheel) , 1000);
 }
+//===========    End of Region ==========
 
 function cycleForward(){
     if(current_selection != nav_links.length-1){
@@ -82,8 +82,6 @@ function cycleForward(){
         nav_links[current_selection].click();
         updateCurrentSelection(current_selection);
         updateSideIndicator(current_selection)
-        
-    
     }
 }
 
