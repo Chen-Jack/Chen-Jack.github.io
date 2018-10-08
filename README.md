@@ -3,12 +3,13 @@
 
 ## Key Ideas
 * Device ID (device_id) is the unique identifier for each of our users
+* There are alot of possible errors that can occur for status 400, so they are ommitted.
 
 </br>
 
 
 ## /is-registered 
-#### Determines if the device and it's unique device_id exists in the database.
+#### Determines if the device's unique device_id is registered on the database.
 ```javascript
 //Request body
 {
@@ -18,7 +19,7 @@
 
 | HTTP STATUS   | Responses      
 | ------------- | ------------- 
-| 200           | Returns the username (String) if their exists a username associated with the device_id
+| 200           | Returns the username (String) that is associated with the registered device_id.
 | 200           | Returns nothing. Occurs when device_id has not been registered yet on the database
 </br>
 
@@ -80,7 +81,7 @@
 
 
 
-## /get-metadata-for-lines-created-by-device'
+## /get-metadata-for-lines-created-by-device
 #### Gets the meta data of all lines created by a given device_id.
 ```javascript
 //Request body
@@ -90,8 +91,9 @@
 ```
 | HTTP STATUS   | Responses      
 | ------------- | ------------- 
-| 200           | Returns an empty array if the given device_id doesn't exist or their is no created lines under the device_id
-| 200           | Returns an array of meta data info.  The structure of the meta data object is shown below.
+| 200           | Returns an empty array if the given device_id doesn't exist or there is no created lines under the device_id
+| 200           | Returns an array of meta data info.  The structure of the meta data object is 
+n below.
 ```javascript
 //Meta data object
 {
@@ -108,6 +110,7 @@
 ```javascript
 //Request body
 {
+  username: String,
   line_id: Number
 }
 ```
@@ -132,6 +135,7 @@
 | 200           | Returns an array of status objects. Check below for the structure of the status object.
 ```javascript
 {
+  //Description and position of one of the line's the user is in
   description: String,
   position: Number
 }
